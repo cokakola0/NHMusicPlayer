@@ -6,6 +6,8 @@ from hermes_python.hermes import Hermes
 from hermes_python.ffi.utils import MqttOptions
 from hermes_python.ontology import *
 import io
+import vlc
+import time
 
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
 CONFIG_INI = "config.ini"
@@ -29,8 +31,26 @@ def subscribe_intent_callback(hermes, intentMessage):
     action_wrapper(hermes, intentMessage, conf)
 
 
-def action_wrapper(hermes, intentMessage, conf):
-    {{#each action_code as |a|}}{{a}}
+def NHMusicPlayer(hermes, intentMessage, conf):
+    {{song_name = intentMessage.slots.song_name.first().value
+      artist_name = intentMessage.slots.artist_name.first().value
+
+      """
+      player = vlc.MediaPlayer("/media/pi/Verbatim/music/artists/" + artist_name + "/all/" + song_name + ".mp3")
+      player.play()
+      """
+
+      sound = str("/media/pi/Verbatim/music/artists/" + artist_name + "/all/" + song_name + ".mp3")
+
+      def Sound(sound):
+          vlc_instance = vlc.Instance()
+          player = vlc_instance.media_player_new()
+          media = vlc_instance.media_new(sound)
+          player.set_media(media)
+          player.play()
+          time.sleep(1.5)
+          duration = player.get_length() / 1000
+          time.sleep(duration)}}
     {{/each}}
 
 
