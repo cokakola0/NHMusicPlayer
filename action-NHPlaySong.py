@@ -31,7 +31,7 @@ def subscribe_intent_callback(hermes, intentMessage):
     action_wrapper(hermes, intentMessage, conf)
 
 
-def NHMusicPlayer(hermes, intentMessage, conf):
+def NHPlaySong(hermes, intentMessage, conf):
     {{song_name = intentMessage.slots.song_name.first().value
       artist_name = intentMessage.slots.artist_name.first().value
 
