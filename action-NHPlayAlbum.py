@@ -33,7 +33,7 @@ def subscribe_intent_callback(hermes, intentMessage):
 
 
 def NHPlayAlbum(hermes, intentMessage, conf):
-    {{music_album = str(intentMessage.slots.music_album.first().value)
+    music_album = str(intentMessage.slots.music_album.first().value)
       music_artist = str(intentMessage.slots.music_artist.first().value)
       album = os.listdir("/media/pi/Verbatim/music/albums/" + music_artist + "/" + music_albums)
       x = 0
@@ -42,7 +42,7 @@ def NHPlayAlbum(hermes, intentMessage, conf):
           song = str("/media/pi/Verbatim/music/alubms/" + music_artist + "/" + album[x] + ".mp3")
           player = vlc.MediaPlayer(song)
           player.play()
-          x += 1}}
+          x += 1
     {{/each}}
 
 
