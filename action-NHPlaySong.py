@@ -28,11 +28,7 @@ def on_message(client, userdata, msg):
         sound = str("/media/pi/Verbatim/music/artists/" + artist_name + "/all/" + song_name + ".mp3")
 
         def Sound(sound):
-            vlc_instance = vlc.Instance()
-            player = vlc_instance.media_player_new()
-            media = vlc_instance.media_new(sound)
-            player.set_media(media)
-            player.play()
+            player.play(sound)
             time.sleep(1.5)
             duration = player.get_length() / 1000
             time.sleep(duration)
