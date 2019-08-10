@@ -8,7 +8,7 @@ import vlc
 
 def on_connect(client, userdata, flags, rc): 
     print('Connected') 
-    mqtt.subscribe('hermes/intent/#')
+    mqtt.subscribe('hermes/intent/NHPlaySong')
 
 def on_message(client, userdata, msg):
     # Parse the json response
