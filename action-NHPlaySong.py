@@ -1,5 +1,5 @@
-# !/usr/bin/env python
-# encoding: utf-8
+#!/usr/bin/env python
+#encoding: utf-8
 import paho.mqtt.client as mqtt 
 import json
 import io
