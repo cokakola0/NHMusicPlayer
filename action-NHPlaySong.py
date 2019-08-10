@@ -37,6 +37,9 @@ def on_message(client, userdata, msg):
             duration = player.get_length() / 1000
             time.sleep(duration)
         
+        Sound(sound)    
+        
+        
 mqtt = mqtt.Client() 
 mqtt.on_connect = on_connect
 mqtt.on_message = on_message
