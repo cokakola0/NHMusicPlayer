@@ -3,7 +3,7 @@
 # Copy config.ini.default if config.ini doesn't exist.
 if [ ! -e config.ini ]
 then
-    cp snips.toml config.ini
+    cp /etc/snips.toml config.ini
 fi
 
 PYTHON=`which python3`
