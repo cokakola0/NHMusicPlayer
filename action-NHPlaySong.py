@@ -27,13 +27,7 @@ def on_message(client, userdata, msg):
 
         sound = str("/media/pi/Verbatim/music/artists/" + artist_name + "/all/" + song_name + ".mp3")
 
-        def Sound(sound):
-            player.play(sound)
-            time.sleep(1.5)
-            duration = player.get_length() / 1000
-            time.sleep(duration)
-        
-        Sound(sound)    
+        player.play(sound)  
         
         
 mqtt = mqtt.Client() 
