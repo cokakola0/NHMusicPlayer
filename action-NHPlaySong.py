@@ -25,7 +25,7 @@ def on_message(client, userdata, msg):
         song_name = intentMessage.slots.song_name.first().value
         artist_name = intentMessage.slots.artist_name.first().value
 
-        sound = str("/media/pi/Verbatim/music/artists/" + artist_name + "/all/" + song_name + ".mp3")
+        sound = str("/media/pi/Verbatim1/music/artists/" + artist_name + "/all/" + song_name + ".mp3")
 
         player.play(sound)  
         
