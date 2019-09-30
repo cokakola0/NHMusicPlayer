@@ -22,13 +22,16 @@ def on_message(client, userdata, msg):
         value = slot['value']['value']
         print('Slot {} -> \n\tRaw: {} \tValue: {}'.format(slot_name, raw_value, value))
         
-        song_name = intentMessage.slots.song_name.first().value
-        artist_name = intentMessage.slots.artist_name.first().value
-
-        sound = str("/media/pi/Verbatim1/music/artists/" + artist_name + "/all/" + song_name + ".mp3")
-
-        player.play(sound)  
+class PlaySong(song_name, artist_name):
+    song_name = intentMessage.slots.song_name.first().value
+    artist_name = intentMessage.slots.artist_name.first().value
+    
+    sound = str("/media/pi/Verbatim1/music/artists/" + artist_name + "/all/" + song_name + ".mp3")
+    
+    player.play(sound)  
         
+if __name__ == "__main__":
+    PlaySong()
         
 mqtt = mqtt.Client() 
 mqtt.on_connect = on_connect
